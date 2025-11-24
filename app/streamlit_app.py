@@ -1,13 +1,15 @@
+import sys, os
+sys.path.append(os.path.dirname(__file__))
+
 # app/streamlit_app.py
 # Streamlit web app for interactive predictions and SHAP plots.
 
 import streamlit as st
 import numpy as np
 import pandas as pd
-import os
 import shap
 import matplotlib.pyplot as plt
-from app.utils import DIABETES_FEATURES, HEART_FEATURES, load_model_pipeline
+from utils import DIABETES_FEATURES, HEART_FEATURES, load_model_pipeline
 
 # Paths
 ROOT = os.path.dirname(os.path.dirname(__file__))
