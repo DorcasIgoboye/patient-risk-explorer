@@ -1,0 +1,5 @@
+age,bmi,glucose,family_history,activity_hours,diabetes,systolic,smoking,ldl,heart
+45,27.5,110,1,3,0,120,0,100,0
+52,31.2,140,0,1,1,135,1,160,1
+36,22.8,95,0,5,0,118,0,90,0
+60,29.0,150,1,2,1,145,1,180,1

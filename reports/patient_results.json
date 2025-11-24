@@ -1,0 +1,12 @@
+{
+  "age": 35,
+  "bmi": 41.0,
+  "glucose": 90,
+  "family_history": 0,
+  "activity_hours": 10.0,
+  "systolic": 70,
+  "smoking": 0,
+  "ldl": 80,
+  "diabetes_prediction": "High risk",
+  "heart_prediction": "Low risk"
+}

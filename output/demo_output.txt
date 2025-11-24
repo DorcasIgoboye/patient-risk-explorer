@@ -1,0 +1,12 @@
+============================================================
+{"age": 30, "bmi": 22, "glucose": 90, "family_history": 0, "activity_hours": 5, "systolic": 115, "smoking": 0, "ldl": 100}
+Diabetes risk: 57%
+Heart risk: 44%
+============================================================
+{"age": 55, "bmi": 31, "glucose": 115, "family_history": 1, "activity_hours": 1, "systolic": 145, "smoking": 1, "ldl": 160}
+Diabetes risk: 99%
+Heart risk: 99%
+============================================================
+{"age": 68, "bmi": 29, "glucose": 105, "family_history": 0, "activity_hours": 2, "systolic": 150, "smoking": 0, "ldl": 140}
+Diabetes risk: 99%
+Heart risk: 99%
