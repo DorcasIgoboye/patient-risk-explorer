@@ -22,6 +22,37 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 st.set_page_config(page_title="Patient Risk Explorer", layout="centered")
 st.title("🧠 Patient Risk Explorer — Interactive Demo")
 
+# Prominent disclaimer under the title
+st.markdown(
+    """
+    <div style="background-color:#ffcccc; padding:12px; border-radius:6px; text-align:center; font-size:16px; font-weight:bold;">
+    ⚠️ This tool is for educational purposes only and should not be used for medical purposes.
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
+# Custom CSS for buttons
+st.markdown(
+    """
+    <style>
+    div.stButton > button:first-child {
+        background-color: #1976d2;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 8px;
+        padding: 0.6em 1.2em;
+    }
+    div.stButton > button:hover {
+        background-color: #1565c0;
+        color: white;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 # Sidebar inputs
 st.sidebar.header("Patient Inputs")
 age = st.sidebar.number_input("Age", min_value=18, max_value=120, value=None, step=1, format="%d")
@@ -117,7 +148,6 @@ if models_ok and st.button("Compute risk"):
 if models_ok and "patient" in st.session_state:
     st.markdown("### 🔍 What-if: Lifestyle improvements")
 
-    # Keep expander open by default
     with st.expander("Choose lifestyle improvements", expanded=True):
         reduce_bmi = st.checkbox("Reduce BMI by 3 units")
         lower_glucose = st.checkbox("Lower fasting glucose by 10 mg/dL")
@@ -144,8 +174,10 @@ if models_ok and "patient" in st.session_state:
             improved["ldl"] = max(30, improved["ldl"] - 20)
 
         # Rebuild arrays in the same feature order
-        new_Xd = np.array([[improved.get(f, 0) if improved.get(f) is not None else 0 for f in st.session_state["feat_d"]]])
-        new_Xh = np.array([[improved.get(f, 0) if improved.get(f) is not None else 0 for f in st.session_state["feat_h"]]])
+        new_Xd = np.array([[improved.get(f, 0) if improved.get(f) is not None else 0
+                            for f in st.session_state["feat_d"]]])
+        new_Xh = np.array([[improved.get(f, 0) if improved.get(f) is not None else 0
+                            for f in st.session_state["feat_h"]]])
 
         new_pd = float(
             st.session_state["model_d"].predict_proba(
